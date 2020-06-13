@@ -6,13 +6,18 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.GestureDetectorCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.telephony.RadioAccessSpecifier;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.aytugburak.peopleperson.R;
 import com.aytugburak.peopleperson.classes.ClassList;
@@ -28,7 +33,7 @@ public class RecyclerFragment extends Fragment {
 
     RecyclerView recyclerContacts;
     DatabaseHelper dbHelper;
-
+    RVAdapter adapter;
     public RecyclerFragment() {
         // Required empty public constructor
     }
@@ -43,7 +48,7 @@ public class RecyclerFragment extends Fragment {
         dbHelper = new DatabaseHelper(getActivity());
         ClassList.data = (ArrayList<Contact>)ContactDB.getAllContacts(dbHelper);
         recyclerContacts = (RecyclerView) view.findViewById(R.id.recyclerContacts);
-        RVAdapter adapter = new RVAdapter(getActivity());
+        adapter = new RVAdapter(getActivity());
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerContacts.setLayoutManager(layoutManager);
@@ -56,4 +61,5 @@ public class RecyclerFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_recycler, container, false);
     }
+
 }

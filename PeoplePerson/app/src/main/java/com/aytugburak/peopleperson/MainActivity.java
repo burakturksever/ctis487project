@@ -1,17 +1,22 @@
 package com.aytugburak.peopleperson;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.TextPaint;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.aytugburak.peopleperson.classes.RVAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,5 +51,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        MediaPlayer kurtlarVadisi = MediaPlayer.create(MainActivity.this, R.raw.kurtlarvadisi);
+        kurtlarVadisi.start();
     }
 }
