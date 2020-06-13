@@ -47,6 +47,7 @@ public class Contact {
         this.favorited = favorited;
     }
 
+
     public Contact(String name, String surname, String birthDate, String category, boolean favorited) {
         this.name = name;
         this.surname = surname;
