@@ -1,5 +1,6 @@
 package com.aytugburak.peopleperson;
 
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
@@ -23,8 +24,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RecyclerFragment extends Fragment {
-    RecyclerView recyclerContacts;
 
+    Context context;
+
+    RecyclerView recyclerContacts;
     SQLiteDatabase db;
     List<Contact> data;
     DatabaseHelper dbHelper;
@@ -53,6 +56,7 @@ public class RecyclerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        context = container.getContext();
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_recycler, container, false);
     }

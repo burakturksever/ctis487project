@@ -27,7 +27,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ItemHolder> {
         return new ItemHolder(view);
     }
 
-    public RVAdapter(RecyclerFragment context) {
+    public RVAdapter(Context context) {
         this.context = context;
     }
 
