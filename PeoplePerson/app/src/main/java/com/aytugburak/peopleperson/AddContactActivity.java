@@ -1,12 +1,15 @@
 package com.aytugburak.peopleperson;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GestureDetectorCompat;
 
 import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
 import android.os.Bundle;
 import android.text.TextPaint;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -21,9 +24,10 @@ import com.aytugburak.peopleperson.classes.RVAdapter;
 
 import java.util.ArrayList;
 
-public class AddContactActivity extends AppCompatActivity {
+public class AddContactActivity extends AppCompatActivity implements GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
     DatabaseHelper dbHelper;
 
+    GestureDetectorCompat mDetector;
     Button btnAddContactAc2;
     EditText etName, etSurname, etDob, etCategory;
     CheckBox cbFavorite;
@@ -31,6 +35,9 @@ public class AddContactActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_contact);
+
+        // Gesture detection
+        mDetector = new GestureDetectorCompat(this, this);
 
         //Making header gradient
         TextView textView = (TextView) findViewById(R.id.textView2);
@@ -65,5 +72,57 @@ public class AddContactActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event){
+        mDetector.onTouchEvent(event);
+        return super.onTouchEvent(event);
+    }
+
+    @Override
+    public boolean onSingleTapConfirmed(MotionEvent e) {
+        return false;
+    }
+
+    @Override
+    public boolean onDoubleTap(MotionEvent e) {
+        finish();
+        return true;
+    }
+
+    @Override
+    public boolean onDoubleTapEvent(MotionEvent e) {
+        return false;
+    }
+
+    @Override
+    public boolean onDown(MotionEvent e) {
+        return false;
+    }
+
+    @Override
+    public void onShowPress(MotionEvent e) {
+
+    }
+
+    @Override
+    public boolean onSingleTapUp(MotionEvent e) {
+        return false;
+    }
+
+    @Override
+    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+        return false;
+    }
+
+    @Override
+    public void onLongPress(MotionEvent e) {
+
+    }
+
+    @Override
+    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+        return false;
     }
 }
