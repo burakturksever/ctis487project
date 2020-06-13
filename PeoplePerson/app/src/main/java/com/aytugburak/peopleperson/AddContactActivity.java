@@ -40,11 +40,11 @@ public class AddContactActivity extends AppCompatActivity {
         textView.getPaint().setShader(textShader);
         //Making header gradient end
 
-        etName = findViewById(R.id.etName);
-        etSurname = findViewById(R.id.etSurname);
-        etDob = findViewById(R.id.etDob);
-        etCategory = findViewById(R.id.etCategory);
-        cbFavorite = findViewById(R.id.cbFavorite);
+        etName = (EditText)findViewById(R.id.etName);
+        etSurname = (EditText)findViewById(R.id.etSurname);
+        etDob = (EditText)findViewById(R.id.etDob);
+        etCategory = (EditText)findViewById(R.id.etCategory);
+        cbFavorite = (CheckBox) findViewById(R.id.cbFavorite);
 
         btnAddContactAc2 = findViewById(R.id.btnAddContactAc2);
         btnAddContactAc2.setOnClickListener(new View.OnClickListener() {
