@@ -24,7 +24,7 @@ public class ContactDB {
     public static final String DROP_TABLE_SQL = "DROP TABLE if exists "+TABLE_NAME;
 
 
-    public static List<Contact> getAllFlags(DatabaseHelper db){
+    public static List<Contact> getAllContacts(DatabaseHelper db){
 
         Cursor cursor = db.getAllRecords(TABLE_NAME, null);
         List<Contact> data=new ArrayList<>();
