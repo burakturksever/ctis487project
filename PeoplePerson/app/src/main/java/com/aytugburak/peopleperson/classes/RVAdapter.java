@@ -12,6 +12,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.aytugburak.peopleperson.R;
+import com.aytugburak.peopleperson.RecyclerFragment;
 
 import java.util.ArrayList;
 
@@ -26,7 +27,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ItemHolder> {
         return new ItemHolder(view);
     }
 
-    public RVAdapter(Context context) {
+    public RVAdapter(RecyclerFragment context) {
         this.context = context;
     }
 
