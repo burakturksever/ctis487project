@@ -20,6 +20,7 @@ import com.aytugburak.peopleperson.classes.RVAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
+    MediaPlayer kurtlarVadisi;
     Button btnAddContact;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
