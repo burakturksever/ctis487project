@@ -17,6 +17,7 @@ import com.aytugburak.peopleperson.classes.ClassList;
 import com.aytugburak.peopleperson.classes.Contact;
 import com.aytugburak.peopleperson.classes.ContactDB;
 import com.aytugburak.peopleperson.classes.DatabaseHelper;
+import com.aytugburak.peopleperson.classes.RVAdapter;
 
 import java.util.ArrayList;
 
