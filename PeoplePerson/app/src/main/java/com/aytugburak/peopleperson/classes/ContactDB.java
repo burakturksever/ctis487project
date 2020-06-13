@@ -69,4 +69,5 @@ public class ContactDB {
         long res = db.insert(TABLE_NAME, contentValues);
         return res;
     }
+
 }

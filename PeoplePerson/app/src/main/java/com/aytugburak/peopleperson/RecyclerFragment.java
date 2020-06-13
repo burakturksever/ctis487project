@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -26,8 +27,6 @@ import java.util.List;
 public class RecyclerFragment extends Fragment {
 
     RecyclerView recyclerContacts;
-    SQLiteDatabase db;
-    List<Contact> data;
     DatabaseHelper dbHelper;
 
     public RecyclerFragment() {
@@ -42,12 +41,13 @@ public class RecyclerFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        dbHelper = new DatabaseHelper(getActivity());//sorun çıkabilir
-        data = ContactDB.getAllContacts(dbHelper);
+        dbHelper = new DatabaseHelper(getActivity());
+        ClassList.data = (ArrayList<Contact>)ContactDB.getAllContacts(dbHelper);
         recyclerContacts = (RecyclerView) view.findViewById(R.id.recyclerContacts);
-
-        ClassList.data = (ArrayList<Contact>) data;
-        RVAdapter adapter = new RVAdapter(getActivity());//sorun çıkabilir 2
+        RVAdapter adapter = new RVAdapter(getActivity());
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerContacts.setLayoutManager(layoutManager);
         recyclerContacts.setAdapter(adapter);
     }
 
