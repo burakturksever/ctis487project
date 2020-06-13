@@ -15,4 +15,7 @@
     <string name="etCategoryHint">Category</string>
     <string name="cbFaveText">Favorite</string>
     <string name="btnAddContactAcText">Add Contact</string>
+    <string name="tvAddInfoTitleText">Add Your Info</string>
+    <string name="etYourNameHint">Your Name</string>
+    <string name="btnAddYourselfText">Save Info</string>
 </resources>
