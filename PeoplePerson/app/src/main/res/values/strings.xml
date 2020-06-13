@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">PeoplePerson</string>
+    <string name="btnAddContactText">Add Contact</string>
+</resources>
