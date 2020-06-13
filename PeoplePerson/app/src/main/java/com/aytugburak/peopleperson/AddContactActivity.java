@@ -13,8 +13,12 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.aytugburak.peopleperson.classes.ClassList;
+import com.aytugburak.peopleperson.classes.Contact;
 import com.aytugburak.peopleperson.classes.ContactDB;
 import com.aytugburak.peopleperson.classes.DatabaseHelper;
+
+import java.util.ArrayList;
 
 public class AddContactActivity extends AppCompatActivity {
     DatabaseHelper dbHelper;
@@ -45,7 +49,7 @@ public class AddContactActivity extends AppCompatActivity {
         etDob = (EditText)findViewById(R.id.etDob);
         etCategory = (EditText)findViewById(R.id.etCategory);
         cbFavorite = (CheckBox) findViewById(R.id.cbFavorite);
-
+        dbHelper = new DatabaseHelper(this);
         btnAddContactAc2 = findViewById(R.id.btnAddContactAc2);
         btnAddContactAc2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +61,8 @@ public class AddContactActivity extends AppCompatActivity {
                 boolean favorited = cbFavorite.isChecked();
 
                 ContactDB.insertContact(dbHelper, name, surname, birthDate, category, favorited);
+
+                finish();
 
             }
         });
