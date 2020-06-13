@@ -1,4 +1,4 @@
-package com.aytugburak.peopleperson.classes;
+package com.aytugburak.peopleperson;
 
 import android.os.Bundle;
 

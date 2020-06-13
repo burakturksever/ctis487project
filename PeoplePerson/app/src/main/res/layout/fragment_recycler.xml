@@ -4,7 +4,7 @@
     android:id="@+id/recyclerFragmentLayout"
     android:layout_width="match_parent"
     android:layout_height="400dp"
-    tools:context=".classes.RecyclerFragment">
+    tools:context=".RecyclerFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerContacts"
