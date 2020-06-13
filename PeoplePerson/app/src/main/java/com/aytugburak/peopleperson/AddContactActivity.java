@@ -2,11 +2,16 @@ package com.aytugburak.peopleperson;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
+import android.graphics.LinearGradient;
+import android.graphics.Shader;
 import android.os.Bundle;
+import android.text.TextPaint;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.aytugburak.peopleperson.classes.ContactDB;
 import com.aytugburak.peopleperson.classes.DatabaseHelper;
@@ -21,6 +26,19 @@ public class AddContactActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_contact);
+
+        //Making header gradient
+        TextView textView = (TextView) findViewById(R.id.textView2);
+        TextPaint paint = textView.getPaint();
+        float width = paint.measureText("Add Contact");
+
+        Shader textShader = new LinearGradient(0, 0, width, textView.getTextSize(),
+                new int[]{
+                        Color.parseColor("#F6255F"),
+                        Color.parseColor("#BD62DD"),
+                }, null, Shader.TileMode.CLAMP);
+        textView.getPaint().setShader(textShader);
+        //Making header gradient end
 
         etName = findViewById(R.id.etName);
         etSurname = findViewById(R.id.etSurname);
