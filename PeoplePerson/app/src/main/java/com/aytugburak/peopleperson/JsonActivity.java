@@ -8,6 +8,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+
 public class JsonActivity extends AppCompatActivity {
 
     Button btnAddYourInfo;
@@ -23,7 +32,14 @@ public class JsonActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(!etYourName.getText().toString().isEmpty()) {
                     String yourname = etYourName.getText().toString();
-
+                    File file = new File("yourname.json");
+                    try {
+                        FileWriter fw = new FileWriter(file);
+                        BufferedWriter bw = new BufferedWriter(fw);
+                        bw.write("{'yourname':[{'name':" + yourname+ "}]}");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     finish();
                 }
                 else {
