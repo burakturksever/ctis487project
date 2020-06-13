@@ -44,12 +44,12 @@ public class RecyclerFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        dbHelper = new DatabaseHelper(this);//sorun çıkabilir
+        dbHelper = new DatabaseHelper(getActivity());//sorun çıkabilir
         data = ContactDB.getAllContacts(dbHelper);
         recyclerContacts = (RecyclerView) view.findViewById(R.id.recyclerContacts);
 
         ClassList.data = (ArrayList<Contact>) data;
-        RVAdapter adapter = new RVAdapter(this);//sorun çıkabilir 2
+        RVAdapter adapter = new RVAdapter(getActivity());//sorun çıkabilir 2
         recyclerContacts.setAdapter(adapter);
     }
 
