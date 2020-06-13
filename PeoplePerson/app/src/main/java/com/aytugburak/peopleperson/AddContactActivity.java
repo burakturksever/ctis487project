@@ -61,9 +61,7 @@ public class AddContactActivity extends AppCompatActivity {
                 boolean favorited = cbFavorite.isChecked();
 
                 ContactDB.insertContact(dbHelper, name, surname, birthDate, category, favorited);
-
                 finish();
-
             }
         });
     }
