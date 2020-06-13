@@ -21,6 +21,7 @@ import com.aytugburak.peopleperson.classes.RVAdapter;
 public class MainActivity extends AppCompatActivity {
 
     Button btnAddContact;
+    MediaPlayer kurtlarVadisi;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        MediaPlayer kurtlarVadisi = MediaPlayer.create(MainActivity.this, R.raw.kurtlarvadisi);
+        kurtlarVadisi = MediaPlayer.create(MainActivity.this, R.raw.kurtlarvadisi);
         kurtlarVadisi.start();
     }
 }
