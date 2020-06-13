@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.aytugburak.peopleperson.classes.MyIntentService;
 import com.aytugburak.peopleperson.classes.RVAdapter;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
+        
         //Making header gradient
         TextView textView = (TextView) findViewById(R.id.textView);
         TextPaint paint = textView.getPaint();
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, AddContactActivity.class);
+                startService(new Intent(getBaseContext(), MyIntentService.class));
                 startActivity(intent);
             }
         });
