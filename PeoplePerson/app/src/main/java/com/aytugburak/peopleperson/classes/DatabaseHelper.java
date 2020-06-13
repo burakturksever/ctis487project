@@ -10,7 +10,7 @@ import android.util.Log;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    public static String DATABASE_NAME="flagsDB"; //DB NAME?
+    public static String DATABASE_NAME="contactDB"; //DB NAME?
     private static int  DATABASE_VERSION = 1;
 
     SQLiteDatabase db;

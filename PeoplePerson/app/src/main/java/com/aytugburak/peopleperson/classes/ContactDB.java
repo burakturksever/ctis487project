@@ -35,7 +35,7 @@ public class ContactDB {
             String surname = cursor.getString(2);
             String birthDate = cursor.getString(3);
             String category = cursor.getString(4);
-            int tempFavorited = cursor.getInt(4);
+            int tempFavorited = cursor.getInt(5);
             boolean favorited = false;
             if(tempFavorited == 1)
                 favorited = true;
