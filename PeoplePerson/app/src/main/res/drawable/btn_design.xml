@@ -9,8 +9,4 @@ android:shape="rectangle">
     android:endColor="#BD62DD"
     android:type="linear"
     />
-<size
-    android:height="60dp"
-    android:width="200dp"
-    />
 </shape>

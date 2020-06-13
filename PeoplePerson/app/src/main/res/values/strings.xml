@@ -1,12 +1,18 @@
 <resources>
     <string name="app_name">PeoplePerson</string>
-    <string name="btnAddContactText">Add Contact</string>
+    <string name="btnAddContactText">+</string>
     <string name="titletext">PeoplePerson</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="tvRLNameText">Name:</string>
     <string name="tvRLSurnameText">Surname:</string>
     <string name="tvRLDobText">Date of Birth:</string>
     <string name="tvRLCategoryText">Category:</string>
     <string name="tvRlFaveText">Favorite:</string>
+    <string name="addContactTitleText">Add Contact</string>
+    <string name="etNameHint">Name</string>
+    <string name="etSurnameHint">Surname</string>
+    <string name="etDobHint">Date of Birth</string>
+    <string name="etCategoryHint">Category</string>
+    <string name="cbFaveText">Favorite</string>
+    <string name="btnAddContactAcText">Add Contact</string>
 </resources>
