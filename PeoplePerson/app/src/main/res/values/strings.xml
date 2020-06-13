@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">PeoplePerson</string>
     <string name="btnAddContactText">Add Contact</string>
+    <string name="titletext">PeoplePerson</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
