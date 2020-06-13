@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.aytugburak.peopleperson.RecyclerFragment;
+
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     public static String DATABASE_NAME="contactDB"; //DB NAME?
@@ -15,7 +17,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     SQLiteDatabase db;
 
-    public DatabaseHelper(Context context ) {
+    public DatabaseHelper(RecyclerFragment context ) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
 
         db= getWritableDatabase();//Wirtable and Readable mode
