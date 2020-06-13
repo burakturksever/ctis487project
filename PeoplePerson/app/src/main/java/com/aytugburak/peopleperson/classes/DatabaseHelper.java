@@ -58,4 +58,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Log.d("DATABASE OPERATIONS", "GET THE RECORDS");
         return cursor;
     }
+
+    public long insert( String tableName, ContentValues contentValues){
+        //ContentValues  allows to define key value pairs.
+        //The key represents the table column identifier and the value represents the content for the table record in this column.
+        //ContentVales can be used for insert and update operations over table
+        Log.d("DATABASE OPERATIONS", "INSERT DONE");
+
+        return db.insert(tableName, null, contentValues);
+    }
 }

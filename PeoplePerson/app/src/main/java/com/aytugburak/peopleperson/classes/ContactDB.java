@@ -20,7 +20,7 @@ public class ContactDB {
     public static final String FIELD_FAVORITED = "favorited";
 
     public static final String CREATE_TABLE_SQL = "CREATE TABLE "+
-            TABLE_NAME+" ("+FIELD_ID+" number, "+FIELD_NAME+" text, "+FIELD_SURNAME+" text, "+FIELD_BIRTHDATE+" text, "+FIELD_CATEGORY+" text,"+FIELD_FAVORITED+" integer);";
+            TABLE_NAME+" ("+FIELD_ID+" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "+FIELD_NAME+" text, "+FIELD_SURNAME+" text, "+FIELD_BIRTHDATE+" text, "+FIELD_CATEGORY+" text,"+FIELD_FAVORITED+" integer);";
     public static final String DROP_TABLE_SQL = "DROP TABLE if exists "+TABLE_NAME;
 
 
@@ -47,5 +47,24 @@ public class ContactDB {
         }
 
         return data;
+    }
+
+    public static long insertContact(DatabaseHelper db, String name, String surname, String birthDate, String category, boolean favorited){
+        ContentValues contentValues = new ContentValues( );
+        contentValues.put(FIELD_NAME, name);
+        contentValues.put(FIELD_SURNAME, surname);
+        contentValues.put(FIELD_BIRTHDATE, birthDate);
+        contentValues.put(FIELD_CATEGORY, category);
+
+        int tempFavorited = 0;
+        if(favorited)
+            tempFavorited = 1;
+        else
+            tempFavorited = 0;
+
+        contentValues.put(FIELD_FAVORITED, tempFavorited);
+
+        long res = db.insert(TABLE_NAME,contentValues);
+        return res;
     }
 }
