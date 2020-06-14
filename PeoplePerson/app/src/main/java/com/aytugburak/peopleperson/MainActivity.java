@@ -2,7 +2,6 @@ package com.aytugburak.peopleperson;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GestureDetectorCompat;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -18,10 +17,14 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.aytugburak.peopleperson.classes.MyIntentService;
-import com.aytugburak.peopleperson.classes.RVAdapter;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
 
@@ -29,6 +32,8 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     private GestureDetectorCompat mDetector;
     MediaPlayer kurtlarVadisi;
     Button btnAddContact;
+    TextView tvWelcomeMessage;
+    ArrayList<String> yourname = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +41,11 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         preferences = getSharedPreferences("com.aytugburak.peopleperson", MODE_PRIVATE);
-        startService(new Intent(getBaseContext(), MyIntentService.class));
+
+        // service
+        Intent serviceintent = new Intent(getBaseContext(), MyService.class);
+        startService(serviceintent);
+
         //Making header gradient
         TextView textView = (TextView) findViewById(R.id.textView);
         TextPaint paint = textView.getPaint();
@@ -63,6 +72,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         kurtlarVadisi = MediaPlayer.create(MainActivity.this, R.raw.kurtlarvadisi);
         kurtlarVadisi.start();
         kurtlarVadisi.setVolume((float)0.1, (float)0.1);
+        tvWelcomeMessage = findViewById(R.id.tvWelcomeMessage);
     }
 
     public void startAddContactActivity(){
@@ -79,7 +89,27 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
             preferences.edit().putBoolean("firstrun", false).commit();
         }
         else {
-            //Json here
+            try {
+                String json;
+                InputStream inputStream = getAssets().open("yourname.json");
+                int size = inputStream.available();
+                byte[] buffer = new byte[size];
+                inputStream.read();
+                inputStream.close();
+
+                json = new String(buffer, "UTF-8");
+                JSONArray jsonArray = new JSONArray(json);
+                for(int i = 0; i <  jsonArray.length(); i++) {
+                    JSONObject jsonObject = jsonArray.getJSONObject(i);
+                    yourname.add(jsonObject.getString("name"));
+                }
+                tvWelcomeMessage.setText("Welcome, " + yourname.get(0));
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
         }
     }
 
