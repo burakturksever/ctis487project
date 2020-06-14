@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         preferences = getSharedPreferences("com.aytugburak.peopleperson", MODE_PRIVATE);
+        startService(new Intent(getBaseContext(), MyIntentService.class));
         //Making header gradient
         TextView textView = (TextView) findViewById(R.id.textView);
         TextPaint paint = textView.getPaint();
