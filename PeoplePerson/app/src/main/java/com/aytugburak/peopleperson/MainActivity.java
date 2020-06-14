@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
                     yourname.add(jsonObject.getString("name"));
                 }
-                tvWelcomeMessage.setText("Welcome, " + yourname.get(yourname.size()-1));
+                tvWelcomeMessage.setText("Welcome, " + yourname.get(0));
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (JSONException e) {
