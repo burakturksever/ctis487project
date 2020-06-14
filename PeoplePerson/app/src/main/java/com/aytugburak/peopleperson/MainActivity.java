@@ -2,7 +2,6 @@ package com.aytugburak.peopleperson;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GestureDetectorCompat;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -18,15 +17,10 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.aytugburak.peopleperson.classes.MyIntentService;
-import com.aytugburak.peopleperson.classes.RVAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -47,6 +41,11 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         preferences = getSharedPreferences("com.aytugburak.peopleperson", MODE_PRIVATE);
+
+        // service
+        Intent serviceintent = new Intent(getBaseContext(), MyService.class);
+        startService(serviceintent);
+
         //Making header gradient
         TextView textView = (TextView) findViewById(R.id.textView);
         TextPaint paint = textView.getPaint();
